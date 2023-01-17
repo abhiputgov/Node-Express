@@ -1,0 +1,28 @@
+{
+  "name": "node-express",
+  "version": "1.0.0",
+  "description": "Node and Express self learning project",
+  "main": "1_app.js",
+  "scripts": {
+    "start": "node 1_app.js",
+    "dev": "nodemon 1_app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abhiputgov/Node-Express.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abhiputgov/Node-Express/issues"
+  },
+  "homepage": "https://github.com/abhiputgov/Node-Express#readme",
+  "dependencies": {
+    "bootstrap": "^5.2.3",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
