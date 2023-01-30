@@ -1,6 +1,6 @@
 const {readFile, writeFile} = require('fs');
 
-//promise based implementation of the readFile method callbacks
+// sample async callback
 let firstText, secondText;
 function getText(filePath) {
     return new Promise((resolve, reject) =>{
@@ -13,6 +13,8 @@ function getText(filePath) {
         });
     });
 }
+
+//promise based implementation of the readFile method callbacks
 
 // getText(`./content/first.txt`)
 // .then((data) => {
