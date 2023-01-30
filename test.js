@@ -1,38 +1,14 @@
-const {readFile, writeFile} = require('fs');
+//util file to alternative to the default promise wrapper
+const { readFile, writeFile } = require('fs').promises;
 
-//promise based implementation of the readFile method callbacks
-let firstText, secondText;
-function getText(filePath) {
-    return new Promise((resolve, reject) =>{
-        readFile(filePath, `utf-8`, (err, data)=>{
-            if (err) {
-                reject(err);
-            }else{
-                resolve(data);
-            }
-        });
-    });
-}
-
-// getText(`./content/first.txt`)
-// .then((data) => {
-//     firstText = data;
-//     getText(`./content/second.txt`);})
-// .then((data)=>{
-//     secondText = data;
-//     console.log(firstText, secondText);})
-// .catch((err) => {console.log(err);});
-
-const content = async () => {
+const start = async() => {
     try {
-    const firstText = await getText(`./content/first.txt`);
-    const secondText = await getText(`./content/second.txt`);
-    console.log(firstText, secondText);
+        const firstText = await readFile('./content/first.txt', 'utf-8');
+        const secondText = await readFile('./content/second.txt', 'utf-8');
+        await writeFile('./content/promisifyCompleteText.txt', `This is promisifed with ${firstText} and ${secondText}`, {flag: 'a'});
+        console.log(firstText,secondText);
     }
-    catch (err) {
-        console.log(err);
-    }
-
+    catch (err) {console.log(err);}
 };
 
-content();
+start();
