@@ -8,10 +8,10 @@ console.log(user);
 console.log(`The sytem uptime is ${os.uptime()}`);
 
 const currentOS = {
-    name: os.type(),
-    release: os.release(),
-    totalMemory: os.totalmem(),
-    freeMemory: os.freemem(),
+  name: os.type(),
+  release: os.release(),
+  totalMemory: os.totalmem(),
+  freeMemory: os.freemem(),
 };
 
 console.log(currentOS);
