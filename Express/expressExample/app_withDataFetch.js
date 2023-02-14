@@ -10,11 +10,32 @@ app.get('/', (req, res) => {
 });
 
 app.get('/api/products', (req, res) => {
-  res.json(products);
+  const reducedProduct = products.map((product) => {
+    const { id, name, image } = product;
+    return { id, name, image };
+  });
+  res.json(reducedProduct);
+});
+
+app.get('/api/products/:productID', (req, res) => {
+  //console.log(req);
+  //console.log(req.params);
+  const { productID } = req.params;
+  const singleProduct = products.find((product) => {
+    return product.id === Number(productID);
+  });
+  if (!singleProduct) {
+    return res.status(404).send('<h1>Such a product does not exist</h1>');
+  }
+  res.json(singleProduct);
 });
 
 app.get('/api/people', (req, res) => {
   res.json(people);
+});
+
+app.all('*', (req, res) => {
+  res.send('<h1>PAGE NOT FOUND!</h1>');
 });
 
 //listeners to PORT
