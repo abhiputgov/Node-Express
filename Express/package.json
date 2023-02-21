@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon expressExample/app_callMethods.js"
+    "start": "nodemon expressExample/app_routes.js"
   },
   "keywords": [],
   "author": "",
