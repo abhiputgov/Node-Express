@@ -1,9 +1,8 @@
 const app = require('express')();
+const tasksRoutes = require('./routes/tasks');
 const PORT = 3000;
 
-app.get('/', (req, res) => {
-  res.send('Task Manager Application');
-});
+app.use('/api/v1/tasks', tasksRoutes);
 
 /*
 app.get('/api/v1/tasks') --> get all tasks
