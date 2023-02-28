@@ -9,6 +9,7 @@ const PORT = 3000;
 app.get('/index.html', (req, res) => {
   res.status(200).send('<h1>Welcome</h1>');
 });
+app.use(express.json());
 app.use(express.static(path.join(__dirname, './public')));
 app.use('/api/v1/tasks', tasksRoutes);
 
