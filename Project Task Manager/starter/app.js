@@ -6,7 +6,7 @@ const path = require('path');
 const tasksRoutes = require('./routes/tasks');
 const notFound = require('./middleware/not-found');
 const errorHandlerMiddleware = require('./middleware/error-Handler');
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, './public')));
