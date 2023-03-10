@@ -1,21 +1,36 @@
+//.env config file
 require('dotenv').config();
+
+//async errors
+require('express-async-errors');
+
+//required node modules
 const express = require('express');
 const app = express();
-const PORT = process.env.PORT || 3000;
+
+//required files from the file system
 const connectDB = require('./db/connectDB');
-//async errors
 const notFound = require('./middleware/not-found');
 const errorHandlerMiddleware = require('./middleware/error-handler');
 
-//middleware functions
-app.use(express.json());
+//constants to work with
+const PORT = process.env.PORT || 3000;
 
-//routes
+//routes files
+const productsRoutes = require('./routes/products');
+app.use(express.json());
+//routes to be updated
 app.get('/', (req, res) => {
   res
     .status(200)
     .send('<h1>Store API</h1><a href="/api/v1/products"> products route</a>');
 });
+
+app.use('/api/v1/products', productsRoutes);
+
+//middleware functions
+app.use(errorHandlerMiddleware);
+app.use(notFound);
 
 const start = async () => {
   try {
